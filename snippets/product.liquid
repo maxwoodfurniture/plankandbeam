@@ -115,6 +115,7 @@
                 <h2 class="product-title">
                   <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                 </h2>
+                
               {% else %}
                 {% if template == 'index' %}
                   <h2 class="product-title">
@@ -154,8 +155,8 @@
                 data-product-sku="{{ product.handle }}" 
                 data-product-type="{{product.type}}" 
                 data-product-title="{{product.title}}" 
-                style="display:block;">
-                {{product.metafields.stamped.badge}}
+                style="display:hidden;">
+                
               </span>
               <!-- Stamped - End Star Rating Badge -->
               {% endif %}

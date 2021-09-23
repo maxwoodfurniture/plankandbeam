@@ -48,6 +48,8 @@
       data-gallery-scroller
     >
     {% for media in product.media %}
+      {% assign file_name = media | split: '/' | last %}
+      {% assign sku = file_name | split: '_' | first | lower %}
       <button
         class="
           product-gallery--media-thumbnail
@@ -61,6 +63,7 @@
         data-gallery-selected="{%- if selected_media.id == media.id -%}true{%- else -%}false{%- endif -%}"
         data-media="{{ media.id }}"
         data-media-type="{{ media.media_type }}"
+        data-variant-sku="{{sku}}"
       >
         <span class="product-gallery--media-thumbnail-img-wrapper" tabindex="-1">
           {% if media.media_type == 'video' or media.media_type == 'external_video' %}

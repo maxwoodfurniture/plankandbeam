@@ -25,6 +25,8 @@
   data-gallery-viewer
 >
   {% for media in product.media %}
+    {% assign file_name = media | split: '/' | last %}
+    {% assign sku = file_name | split: '__' | first | lower %}
     <figure
       class="
         product-gallery--media
@@ -40,6 +42,7 @@
       data-gallery-index="{{ forloop.index0 }}"
       data-gallery-selected="{%- if selected_media.id == media.id -%}true{%- else -%}false{%- endif -%}"
       data-media="{{ media.id }}"
+      data-variant-sku="{{sku}}"
       data-media-type="{{ media.media_type }}"
       {% if media.media_type == 'image' %}
         {% assign max_zoom = 2400 %}

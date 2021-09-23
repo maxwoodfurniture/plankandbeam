@@ -30767,6 +30767,16 @@ class ProductGallery {
     if (!variant.featured_media) return;
     const slide = this.viewer.querySelector(`[data-media="${variant.featured_media.id}"]`);
 
+    for (var i = 0; i < this.navScroller.children.length; i++) {
+      var button = this.navScroller.children[i];
+      button.style.display = "inline-block";
+    }
+
+    const slidesToHide = this.navigation.querySelectorAll(`button:not([data-variant-sku="${variant.sku.toLowerCase()}"])`);
+    for (var slideToHide of slidesToHide) {
+      slideToHide.style.display = "none";
+    }
+
     this._selectMediaByEl(slide);
   }
 
@@ -31337,6 +31347,18 @@ class ProductDetails {
     if (this.variantsUI.isInIndeterminateState) {
       this._showPriceRange();
     }
+
+    let currentVariant = this.product.variants[0];
+    const urlSearchParams = new URLSearchParams(location.search);
+    const qVariantId = +urlSearchParams.get('variant');
+    if (qVariantId) {
+      for (let variant of this.product.variants) {
+        console.log(variant.id, qVariantId)
+        if (variant.id === qVariantId) currentVariant = variant;
+      }
+    }
+    console.log(currentVariant)
+    this._switchVariant({currentVariant: currentVariant})
   }
 
   unload() {
