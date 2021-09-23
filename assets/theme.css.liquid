@@ -16952,6 +16952,15 @@ shopify-payment-terms {
   padding-left: 0.3125rem;
   margin-left: {{ space_x_small | divided_by: 16.0 | append: 'rem' }};
 }
+
+.klaviyo-bis-trigger {
+  margin-top: 1rem !important;
+  width: 100% !important;
+  background: {{ settings.color_button_background }};
+  color: {{ settings.color_button_text }};
+}
+
+
 .product-form--atc-button:not(.disabled):hover {
   background: {{ color_background | color_mix: settings.color_button_secondary_background, 20 }};
   border: 1px solid {{ color_button_secondary_border_hover }};
