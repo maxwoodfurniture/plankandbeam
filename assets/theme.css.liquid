@@ -1761,30 +1761,18 @@ template {
 {{ new_color }}
 {% comment %}Inject morph end{% endcomment %}
 {% endcapture %}
-{% assign color_black = '#000' %}
-  {% assign color_white = '#fff' %}
+{% assign color_black = '#000000' %}
+  {% assign color_white = '#ffffff' %}
 {% assign border_mix_local_background = color_background %}
   {% assign border_mix_local_dark = color_black %}
   {% assign border_mix_local_light = color_white %}
-  {% capture border_mix %}{% comment %}Inject border-mix begin{% endcomment %}
-{%- capture _ -%}
-  {% comment %}
-    If background is dark return appropriate color
-    @param border_mix_local_background
-    @param border_mix_local_dark
-    @param border_mix_local_light
-  {% endcomment %}
 
   {% assign border_mix_lightness = border_mix_local_background | color_extract: 'lightness' %}
   {% if border_mix_lightness >= 50 %}
-    {% assign border_mix_result = border_mix_local_dark %}
+    {% assign border_mix = border_mix_local_dark %}
   {% else %}
-    {% assign border_mix_result = border_mix_local_light %}
+    {% assign border_mix = border_mix_local_light %}
   {% endif %}
-{%- endcapture -%}
-{{ border_mix_result }}
-{% comment %}Inject border-mix end{% endcomment %}
-{% endcapture %}
 
   {% assign color_border = color_background | color_mix: border_mix, 50 %}
   {% assign color_border_mix_encoded = border_mix | color_to_hex | replace: '#', '' %}
@@ -13164,7 +13152,7 @@ html body .home-section--content .promo-mosaic--inner.promo-mosaic--compressed .
   left: -1px;
   border: 1px solid {{ color_border | color_modify: 'alpha', 0.2 }};
   border-radius: 4px;
-  box-shadow: 0 2px 3px {{ color_border | color_modify: 'alpha', 0.11 }};
+  box-shadow: 0 2px 3px {{ color_border | color_modify: 'alpha', 0.01 }};
   transition: border 100ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .live-search-form:hover, .live-search--focused .live-search-form {
@@ -21055,4 +21043,11 @@ body:not(.user-is-tabbing) .rte .tabs .grouped-content-trigger {
   display: block;
   opacity: 1;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 
+  Boost Styles
+*/
+.boost-pfs-filter-tree-h {
+  margin-top: 20px;
 }
