@@ -61,6 +61,8 @@
   >
     <input type="hidden" name="type" value="{{ search_type | replace: '  ', '' | strip_newlines }}">
     <div class="form-field no-label">
+      
+
       {%- unless section.settings.filter_search_by == 'disabled' -%}
         {%- assign search_filter_content_first = blank -%}
         {%- assign search_filter_selected = blank -%}
@@ -115,6 +117,21 @@
           {% render 'icon-chevron-down-small' %}
         </span>
       {%- endunless -%}
+
+      <button
+        class="live-search-button"
+        type="submit"
+        aria-label="{{ 'general.accessibility.search' | t }}"
+        data-live-search-submit
+      >
+        <span class="search-icon search-icon--inactive">
+          {% render 'icon-search' %}
+        </span>
+        <span class="search-icon search-icon--active">
+          {% render 'icon-spinner' %}
+        </span>
+      </button>
+
       <input
         class="form-field-input live-search-form-field"
         type="text"
@@ -134,6 +151,8 @@
         {% endif %}
         autocomplete="off"
         data-live-search-input>
+
+        
       <button
         class="live-search-takeover-cancel"
         type="button"
@@ -141,19 +160,8 @@
         {{ 'search.form.cancel' | t }}
       </button>
 
-      <button
-        class="live-search-button"
-        type="submit"
-        aria-label="{{ 'general.accessibility.search' | t }}"
-        data-live-search-submit
-      >
-        <span class="search-icon search-icon--inactive">
-          {% render 'icon-search' %}
-        </span>
-        <span class="search-icon search-icon--active">
-          {% render 'icon-spinner' %}
-        </span>
-      </button>
+      
+      
     </div>
 
     <div class="search-flydown" data-live-search-flydown>

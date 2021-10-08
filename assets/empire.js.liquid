@@ -30772,7 +30772,7 @@ class ProductGallery {
       button.style.display = "inline-block";
     }
 
-    const slidesToHide = this.navigation.querySelectorAll(`button:not([data-variant-sku="${variant.sku.toLowerCase()}"])`);
+    const slidesToHide = this.navigation.querySelectorAll(`button.product-gallery--image-thumbnail:not([data-variant-sku="${variant.sku.toLowerCase()}"])`);
     for (var slideToHide of slidesToHide) {
       slideToHide.style.display = "none";
     }
