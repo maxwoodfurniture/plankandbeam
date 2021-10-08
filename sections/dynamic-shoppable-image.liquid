@@ -53,6 +53,40 @@
     ]
   }
 </script>
+{% assign zoom_height = background_image.height %}
+{% assign zoom_width = background_image.width %}
+{% case section.settings.aspect_ratio %}
+{% when 'short' %}
+  {% assign min_width = background_image.height | times: 4 | divided_by: 3 %}
+  {% if background_image.width > min_width %}
+    {% assign zoom_width = min_width %}
+  {% else %}
+    {% assign zoom_height = background_image.width | times: 3 | divided_by: 4 %}
+  {% endif %}
+{% when 'square' %}
+  {% comment %} Square crop {% endcomment %}
+  {% if background_image.height > background_image.width %}
+    {% assign zoom_height = background_image.width %}
+  {% else %}
+    {% assign zoom_width = background_image.height %}
+  {% endif %}
+{% when 'tall' %}
+  {% assign min_width = background_image.height | times: 2 | divided_by: 3 %}
+  {% if background_image.width > min_width %}
+    {% assign zoom_width = min_width %}
+  {% else %}
+    {% assign zoom_height = background_image.width | times: 3 | divided_by: 2 %}
+  {% endif %}
+{% endcase %}
+{%- capture size -%}{{zoom_width}}x{{zoom_height}}{%- endcapture -%}
+
+{% assign visibility_class = '' %}
+{% case section.settings.visible_on_device %}
+  {% when 'mobile' %}
+  {% assign visibility_class = 'mobile-only' %}
+  {% when 'desktop' %}
+  {% assign visibility_class = 'desktop-only' %}
+{% endcase %}
 
 {% comment %}Inject @pixelunion/pxs-shoppable-image/dynamic-shoppable-image begin{% endcomment %}
 {%- comment -%}
@@ -117,6 +151,8 @@
     Link for button in text box component
 {%- endcomment -%}
 
+
+
 <script
   type="application/json"
   data-section-type="pxs-shoppable-image"
@@ -124,7 +160,7 @@
 >
 </script>
 
-<section class="shoppable-image {{ root_class }} {% if title == blank %}no-section-heading{% endif %}" data-shoppable-image-container>
+<section class="shoppable-image {{ root_class }} {% if title == blank %}no-section-heading{% endif %} {{ visibility_class }}" data-shoppable-image-container>
   {% if title != blank %}
     <h2 class="shoppable-image__section-heading">{{ title | escape }}</h2>
   {% endif %}
@@ -137,7 +173,7 @@
       {%
         include 'rimg',
         img: background_image,
-        size: '1400x',
+        size: size,
         class: 'shoppable-image__image',
         crop: 'center',
         lazy: true,
@@ -732,6 +768,17 @@
   "max_blocks": 5,
   "settings": [
     {
+      "type": "select",
+      "id": "visible_on_device",
+      "label": "Visible on device",
+      "options": [
+        { "value": "both", "label": "Desktop and mobile" },
+        { "value": "desktop", "label": "Desktop" },
+        { "value": "mobile", "label": "Mobile" }
+      ],
+      "default": "both"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Section heading",
@@ -761,6 +808,18 @@
         }
       ],
       "default": "two-thirds"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        { "value": "natural", "label": "Natural" },
+        { "value": "short", "label": "Short (4:3)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "tall", "label": "Tall (2:3)" }
+      ],
+      "default": "natural"
     },
     {
       "type": "text",

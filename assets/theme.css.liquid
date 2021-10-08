@@ -21051,3 +21051,26 @@ body:not(.user-is-tabbing) .rte .tabs .grouped-content-trigger {
 .boost-pfs-filter-tree-h {
   margin-top: 20px;
 }
+
+/* 
+  Mobile-only and Desktop-only
+*/
+.mobile-only {
+  display: none;
+}
+
+@media screen and (max-width: 719px) {
+  .mobile-only {
+    display: initial;
+  }
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .desktop-only {
+    display: initial;
+  }
+}
