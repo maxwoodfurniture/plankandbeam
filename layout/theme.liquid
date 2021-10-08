@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.shopifycdn.com">
     <link rel="preconnect" href="https://v.shopify.com">
     <link rel="preconnect" href="https://cdn.shopifycloud.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <title>
       {{- page_title -}}
@@ -71,6 +73,8 @@
     <link rel="preload" as="style" href="{{ 'theme.css' | asset_url }}">
 
     {{ content_for_header }}
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
 
