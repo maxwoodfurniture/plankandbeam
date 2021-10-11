@@ -407,7 +407,7 @@ var boostPFSFilterConfig = {
           }
         })
         if (swatchValue) {
-          var swatch = '<label>' +
+          var swatch = '<label data-img="{{swatchImage}}">' +
             '<input class="productitem--swatches-input" type="radio" name="swatch" value="{{swatchValue}}">' +
             '<div class="productitem--swatches-swatch-wrapper" data-swatch-tooltip="{{swatchValue}}" data-swatch>' +
             '<div class="productitem--swatches-swatch">' +
@@ -436,10 +436,13 @@ var boostPFSFilterConfig = {
             backgroundImage = boostPFSAppConfig.general.file_url.split('?')[0] + slugifyValue + '.png';
           }
 
+          var swatchImage = Utils.optimizeImage(variant.image, '512x');
+
           swatch = swatch.replace(/{{swatchValue}}/g, swatchValue);
           swatch = swatch.replace(/{{backgroundColor}}/g, backgroundColor);
           swatch = swatch.replace(/{{backgroundImage}}/g, backgroundImage);
           swatch = swatch.replace(/{{customColor}}/g, customColor);
+          swatch = swatch.replace(/{{swatchImage}}/g, swatchImage);
           swatches.push(swatch);
         }
       })
@@ -472,6 +475,32 @@ var boostPFSFilterConfig = {
     }
 
     return html;
+  }
+
+  function registerSwatchEvents() {
+    document.querySelectorAll('[data-product-item]').forEach((product) => {
+      const mainImage = product.querySelector('[data-product-item-image] img');
+      
+      product.querySelectorAll('[data-swatches-container] label').forEach((swatch) => {
+        swatch.addEventListener('click', () => {
+          mainImage.src = swatch.dataset.img;
+          mainImage.dataset.lastSrc = swatch.dataset.img;
+        });
+        swatch.addEventListener('mouseover', () => {
+          mainImage.dataset.lastSrc = mainImage.src;
+          mainImage.src = swatch.dataset.img;
+        });
+        swatch.addEventListener('mouseout', () => {
+          mainImage.src = mainImage.dataset.lastSrc;
+        });
+      });
+
+    });
+    // document.querySelectorAll('[data-swatches-container] label').forEach((el) => {
+    //   const mainImage = el.closest('[data-product-item-image]')
+    //   console.log(mainImage);
+    //   el.addEventListener('click', (e) => { e.preventDefault(); console.log(el); })
+    // });
   }
 
   /************************** END BUILD PRODUCT LIST **************************/
@@ -613,6 +642,7 @@ var boostPFSFilterConfig = {
     if (jQ(Selector.products + ' [data-rimg="lazy"]').length > 0) {
       jQ(Selector.products + ' [data-rimg="lazy"]').attr('data-rimg', 'loaded');
     }
+    registerSwatchEvents();
   };
 
   // Build additional elements

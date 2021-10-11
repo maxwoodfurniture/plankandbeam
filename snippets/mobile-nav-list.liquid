@@ -57,7 +57,9 @@
           aria-expanded="false"
         {% endif %}
       >
-        {{ menu_item.title }}
+        {% assign iconHandle = menu_item.title | handle %}
+        {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}
+        {{ menu_item.title }} 
       </a>
 
       {% if show_subnav %}

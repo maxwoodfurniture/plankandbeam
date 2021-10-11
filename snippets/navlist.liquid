@@ -125,6 +125,8 @@
         "
         href="{{ menu_item.url }}"
         >
+          {% assign iconHandle = menu_item.title | handle %}
+          {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}
           {{ menu_item_image_markup }}
           {{ menu_item.title }}
           {%- if product_count -%}
@@ -159,6 +161,8 @@
             aria-expanded="false"
           {% endif %}
         >
+          {% assign iconHandle = menu_item.title | handle %}
+          {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}  
           {{ menu_item_image_markup }}
           {{ menu_item.title }}
           {%- if product_count -%}

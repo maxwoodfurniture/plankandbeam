@@ -31353,11 +31353,11 @@ class ProductDetails {
     const qVariantId = +urlSearchParams.get('variant');
     if (qVariantId) {
       for (let variant of this.product.variants) {
-        console.log(variant.id, qVariantId)
+
         if (variant.id === qVariantId) currentVariant = variant;
       }
     }
-    console.log(currentVariant)
+
     this._switchVariant({currentVariant: currentVariant})
   }
 
@@ -31869,6 +31869,7 @@ class GridItemSwatches {
     this.activeControl = this.swatchesContainer.querySelector('[checked]');
     this.isPreselected = !!this.activeControl;
     this.swatches = this.swatchesContainer.querySelectorAll('[data-swatch]');
+    this.swatchesRadio = this.swatchesContainer.querySelectorAll('input[type="radio"]');
     this.swatchCount = this.swatches.length;
     this.swatchCountWrapper = this.el.querySelector('[data-swatch-count-wrapper]');
     this.swatchCount = this.swatchCountWrapper.querySelector('[data-swatch-count]');
@@ -31883,7 +31884,7 @@ class GridItemSwatches {
 
     this.events.register(window, 'resize', just_debounce_default()(() => this.resize(), 50));
     this.events.register(this.swatchCountWrapper, 'click', () => this._toggleExpanded()); // Image injection events
-
+    
     this.injectImagesMouseoverEvent = this.events.register(this.el, 'mouseover', () => this._injectImages());
     this.injectImagesFocusinEvent = this.events.register(this.el, 'focusin', () => this._injectImages()); // Image/swatch switching events
 
