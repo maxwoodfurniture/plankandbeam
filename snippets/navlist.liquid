@@ -125,8 +125,10 @@
         "
         href="{{ menu_item.url }}"
         >
-          {% assign iconHandle = menu_item.title | handle %}
-          {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}
+          {% if is_mobile %}
+            {% assign iconHandle = menu_item.title | handle %}
+            {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}
+          {% endif %}
           {{ menu_item_image_markup }}
           {{ menu_item.title }}
           {%- if product_count -%}
@@ -161,8 +163,10 @@
             aria-expanded="false"
           {% endif %}
         >
-          {% assign iconHandle = menu_item.title | handle %}
-          {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}  
+          {% if is_mobile %}  
+            {% assign iconHandle = menu_item.title | handle %}
+            {% render 'menu-icons', icon: iconHandle, fill: settings.color_text %}
+          {% endif %}  
           {{ menu_item_image_markup }}
           {{ menu_item.title }}
           {%- if product_count -%}
