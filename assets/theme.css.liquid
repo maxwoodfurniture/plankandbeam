@@ -5340,8 +5340,47 @@ body .mdc-ripple-surface:hover:before {
   }
 }
 
+.product-description-wrapper {
+  position: relative;
+}
+
 .product-description {
+  max-height: 20vh;
+  overflow: hidden;
   margin: {{ space_xx_small | divided_by: 16.0 | append: 'rem' }} 0;
+  mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
+}
+
+.product-description-wrapper .read-more {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
+}
+
+.product-description-wrapper .read-more button {
+  color: {{ settings.color_button_secondary_text }};
+  background-color: {{ settings.color_button_secondary_background }};
+  border: 1px solid {{ settings.color_button_secondary_border }};
+  font-size: var(--font-size-button-small);
+  padding: 0.875rem 1.75rem;
+  letter-spacing: {{ settings.type_button_spacing | divided_by: 100.0 | append: 'em' }};
+  position: relative;
+  width: calc(100% - {{ space_x_small | divided_by: 16.0 | append: 'rem' }} - 14rem);
+  padding-right: 0.3125rem;
+  padding-left: 0.3125rem;
+  margin-left: {{ space_x_small | divided_by: 16.0 | append: 'rem' }};
+  font-family: {{ fonts_type_button_family }};
+  font-style: {{ fonts_type_button_style }};
+  font-weight: {{ fonts_type_button_weight }};
+  cursor: pointer;
+}
+
+.product-description-wrapper .read-more button:hover {
+  background: {{ color_background | color_mix: settings.color_button_secondary_background, 20 }};
+  border: 1px solid {{ color_button_secondary_border_hover }};
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-form--alt {
@@ -14337,7 +14376,6 @@ html body .home-section--content .promo-mosaic--inner.promo-mosaic--compressed .
   height: {{ swatches_product_card_size | append: 'px' }};
   margin-top: {{ space_x_small | divided_by: 16.0 | append: 'rem' }};
   margin-bottom: {{ space_xxx_small | divided_by: 16.0 | append: 'rem' }};
-  overflow: hidden;
 }
 .productitem--swatches.processed {
   overflow: visible;
@@ -14347,9 +14385,7 @@ html body .home-section--content .promo-mosaic--inner.promo-mosaic--compressed .
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding-right: {{ swatches_product_card_size | times: 1.5 | append: 'px' }};
   margin-bottom: -6px;
-  background: {{ color_background }};
 }
 .productitem--swatches-expanded .productitem--swatches-container {
   padding-bottom: {{ space_x_small | divided_by: 16.0 | append: 'rem' }};
@@ -14447,7 +14483,6 @@ html body .home-section--content .promo-mosaic--inner.promo-mosaic--compressed .
 
 .productitem--swatches-swatch {
   height: 100%;
-  overflow: hidden;
   pointer-events: none;
   transition: transform 150ms cubic-bezier(0.7, 0.18, 1, 1);
 }
@@ -16926,8 +16961,8 @@ shopify-payment-terms {
 }
 
 .product-form--atc-button {
-  color: {{ settings.color_button_secondary_text }};
-  background-color: {{ settings.color_button_secondary_background }};
+  background-color: {{ settings.color_button_secondary_text }};
+  color: {{ settings.color_button_secondary_background }};
   border: 1px solid {{ settings.color_button_secondary_border }};
   font-size: var(--font-size-button-large);
   padding: 0.875rem 1.75rem;
@@ -16948,8 +16983,9 @@ shopify-payment-terms {
 
 
 .product-form--atc-button:not(.disabled):hover {
-  background: {{ color_background | color_mix: settings.color_button_secondary_background, 20 }};
-  border: 1px solid {{ color_button_secondary_border_hover }};
+  color: {{ settings.color_button_secondary_text }};
+  background-color: {{ settings.color_button_secondary_background }};
+  /* border: 1px solid {{ color_button_secondary_border_hover }}; */
 }
 .product-form--atc-button.mdc-ripple-surface.mdc-ripple-upgraded {
   --mdc-ripple-fg-opacity: 0.12;

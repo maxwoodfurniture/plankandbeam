@@ -2006,10 +2006,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
 
 // ----- defaults ----- //
 
-utils.extend( Flickity.defaults, {
-  draggable: '>1',
-  dragThreshold: 3,
-});
+// utils.extend( Flickity.defaults, {
+//   draggable: '>1',
+//   dragThreshold: 3,
+// });
 
 // ----- create ----- //
 
@@ -22764,7 +22764,6 @@ function roundSize(size) {
  */
 function getElementSize(el) {
   var size = { width: 0, height: 0 };
-
   while (el) {
     size.width = el.offsetWidth;
     size.height = el.offsetHeight;
@@ -25917,6 +25916,7 @@ var cjs = __webpack_require__(646);
 // EXTERNAL MODULE: ./node_modules/flickity/js/index.js
 var js = __webpack_require__(442);
 var js_default = /*#__PURE__*/__webpack_require__.n(js);
+window.Flickity = js_default();
 // EXTERNAL MODULE: ./node_modules/@pixelunion/events/dist/EventHandler.js
 var EventHandler = __webpack_require__(766);
 ;// CONCATENATED MODULE: ./source/scripts/Layout.js
@@ -30775,6 +30775,12 @@ class ProductGallery {
     const slidesToHide = this.navigation.querySelectorAll(`button.product-gallery--image-thumbnail:not([data-variant-sku="${variant.sku.toLowerCase()}"])`);
     for (var slideToHide of slidesToHide) {
       slideToHide.style.display = "none";
+      slideToHide.dataset.hidden = true;
+    }
+
+    const mediaToHide = this.viewer.querySelectorAll(`.product-gallery--media:not([data-variant-sku="${variant.sku.toLowerCase()}"])`);
+    for (var media of mediaToHide) {
+      media.dataset.hidden = true;
     }
 
     this._selectMediaByEl(slide);
@@ -31039,6 +31045,7 @@ class ProductGallery {
   _setupFlickity() {
     if (this.flickity || !Layout.isLessThanBreakpoint('S')) return;
     this.flickity = new (js_default())(this.viewer, {
+      draggable: false,
       accessibility: false,
       adaptiveHeight: true,
       cellSelector: '.product-gallery--media',
@@ -31325,7 +31332,7 @@ class ProductDetails {
       $badge: this.$details.find('[data-badge-sales]'),
       $badgeRange: this.$details.find('[data-badge-sales-range]'),
       $badgeSingle: this.$details.find('[data-badge-sales-single]'),
-      $sku: this.$details.find('[data-product-sku]'),
+      $sku: this.$details.find('.product-sku[data-product-sku]'),
       unitPrice: this.$details[0].querySelector('[data-unit-price]'),
       totalQuantity: this.$details[0].querySelector('[data-total-quantity]'),
       unitPriceAmount: this.$details[0].querySelector('[data-unit-price-amount]'),
@@ -35725,7 +35732,31 @@ class Product {
     }
 
     if (this.$readmore.length) {
-      this.readmoreText = new RichText(this.$readmore);
+      // this.readmoreText = new RichText(this.$readmore);
+      this.$readmore.on('click', (e) => {
+        let totalHeight = 50;
+        const $descriptionChildren = this.$description.find('p, li');
+        const children = $.makeArray($descriptionChildren);
+
+        $descriptionChildren.each(function() {
+          totalHeight += $(this).outerHeight();
+        });
+
+        this.$description.css({
+          "height": this.$description.height(),
+          "max-height": 9999,
+        }).animate({
+          "height": totalHeight
+        }, 400, "swing", () => {
+          this.$description.css({
+            "mask-image": "none"
+          });
+        });
+
+        this.$readmore.fadeOut();
+        return false;
+
+      });
     }
 
     if (this.$productReviews.length) {

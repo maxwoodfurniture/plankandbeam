@@ -54,7 +54,15 @@
 {% assign product_available = product.available %}
 
 {% comment %}For a potential divider in the product.description we need to split the content{% endcomment %}
-{% assign readmore_split = product.description | split: '<!-- more -->' %}
+{% comment %}{% assign readmore_split = product.description | split: '<!-- more -->' %}{% endcomment %}
+
+{%- comment -%} Character limit read more {%- endcomment -%}
+{% assign truncated = false %}
+{% assign truncatedDesc = product.description | truncatewords: 150 %}
+{% if truncatedDesc != product.description %}
+  {% assign truncated = true %}
+{% endif %}
+
 
 {% if onboarding %}
   {% assign compare_at_price = 2999 %}
@@ -154,9 +162,8 @@
                 data-id="{{ product.id }}"
                 data-product-sku="{{ product.handle }}" 
                 data-product-type="{{product.type}}" 
-                data-product-title="{{product.title}}" 
-                style="display:hidden;">
-                
+                style="display: block;">
+                  {{product.metafields.stamped.badge}}
               </span>
               <!-- Stamped - End Star Rating Badge -->
               {% endif %}
@@ -211,11 +218,14 @@
               {% endunless %}
 
             {% when 'description' %}
-              {% if readmore_split[0] != blank %}
-                <div class="product-description rte" data-product-description>
-                  {{ readmore_split[0] }}
+                <div class="product-description-wrapper">
+                  <div class="product-description rte" data-product-description>
+                    {{ product.description }}
+                  </div>
+                  <p class="read-more"><button data-product-readmore>Read more</button></p>
                 </div>
-              {% endif %}
+              
+
             {% when 'form' %}
               <div
                 class="product-form--regular"

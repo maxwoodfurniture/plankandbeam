@@ -14,7 +14,7 @@
     <div class="mobile-nav-content" data-mobile-nav-content>
       {%
         render 'mobile-nav-list',
-        menu: section.settings.menu,
+        menu: section.settings.menu_mobile,
         blocks: blocks,
       %}
 
@@ -27,6 +27,7 @@
             depth: 1,
             max_depth: 1,
             aria_expanded: true,
+            is_mobile: true
           %}
         </div>
       {% endif %}

@@ -54,7 +54,7 @@
   }
 </script>
 {% assign zoom_height = background_image.height %}
-{% assign zoom_width = background_image.width %}
+{% assign zoom_width = settings.layout_max_width %}
 {% case section.settings.aspect_ratio %}
 {% when 'short' %}
   {% assign min_width = background_image.height | times: 4 | divided_by: 3 %}
@@ -168,17 +168,19 @@
   {% if enable_text_box %}
     <div class="shoppable-image__section-content-wrapper">
   {% endif %}
-  <div class="shoppable-image__wrapper" data-shoppable-image-wrapper>
+  <div class="shoppable-image__wrapper" data-shoppable-image-wrapper data-zoom="{{ background_image | img_url: size, crop: 'center' }}">
     {% if background_image != blank %}
+      {% capture rimg_style %}width:{{zoom_width}};height:{{zoom_height}};{% endcapture %}
       {%
         include 'rimg',
         img: background_image,
-        size: size,
+        size: '1350x',
         class: 'shoppable-image__image',
         crop: 'center',
         lazy: true,
         canvas: true,
         attr: 'data-shoppable-image-img'
+
       %}
     {% else %}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'shoppable-image__image shoppable-image__placeholder-image' }}

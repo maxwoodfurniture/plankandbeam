@@ -62,61 +62,7 @@
     <input type="hidden" name="type" value="{{ search_type | replace: '  ', '' | strip_newlines }}">
     <div class="form-field no-label">
       
-
-      {%- unless section.settings.filter_search_by == 'disabled' -%}
-        {%- assign search_filter_content_first = blank -%}
-        {%- assign search_filter_selected = blank -%}
-
-        {%- case filter_search_by -%}
-          {%- when 'product_type' -%}
-            {% capture search_filter_content_rest %}
-              {% for type in shop.types %}
-                {%- if type == blank -%}{%- continue -%}{%- endif -%}
-                {%- if type == filter -%}
-                  {%- assign search_filter_selected = type -%}
-                  {%- capture search_filter_content_first -%}
-                    <option value="{{ filter_search_by }}:{{ type | escape }}" selected>{{ type }}</option>
-                  {%- endcapture -%}
-                {%- else -%}
-                  <option value="{{ filter_search_by }}:{{ type | escape }}">{{ type }}</option>
-                {%- endif -%}
-              {% endfor %}
-            {% endcapture %}
-          {%- when 'tag' -%}
-            {%- capture search_filter_content_rest -%}
-              {%- for tag in collections.all.all_tags -%}
-                {%- assign split_tag = tag | split: '_' -%}
-                {%- if split_tag[0] == 'searchfilter' -%}
-                  {%- if tag == filter or collection.title == split_tag[1] -%}
-                    {%- assign search_filter_selected = split_tag[1] -%}
-                    {%- capture search_filter_content_first -%}
-                      <option value="{{ filter_search_by }}:{{ tag | escape }}" selected>{{ split_tag[1] }}</option>
-                    {%- endcapture -%}
-                  {%- else -%}
-                    <option value="{{ filter_search_by }}:{{ tag | escape }}">{{ split_tag[1] }}</option>
-                  {%- endif -%}
-                {%- endif -%}
-              {%- endfor -%}
-            {%- endcapture -%}
-        {%- endcase -%}
-
-        <span class="form-field-select-wrapper live-search-filter-wrapper">
-          <select class="live-search-filter" data-live-search-filter data-filter-all="{{ 'search.form.filter_all' | t }}">
-            {{ search_filter_content_first }}
-            <option value="" {% if search_filter_selected == blank %}selected{% endif %}>{{ 'search.form.filter_all' | t }}</option>
-            <option value="" disabled>------</option>
-            {{ search_filter_content_rest }}
-          </select>
-          <label class="live-search-filter-label form-field-select" data-live-search-filter-label>
-            {%- if search_filter_selected != blank -%}
-              {{ search_filter_selected }}
-            {%- else -%}
-              {{ 'search.form.filter_all' | t }}
-            {%- endif -%}
-          </label>
-          {% render 'icon-chevron-down-small' %}
-        </span>
-      {%- endunless -%}
+      
 
       <button
         class="live-search-button"
@@ -151,6 +97,63 @@
         {% endif %}
         autocomplete="off"
         data-live-search-input>
+
+        {% comment %} BEGIN Live Search Filter {% endcomment %}
+      {%- unless section.settings.filter_search_by == 'disabled' -%}
+      {%- assign search_filter_content_first = blank -%}
+      {%- assign search_filter_selected = blank -%}
+
+      {%- case filter_search_by -%}
+        {%- when 'product_type' -%}
+          {% capture search_filter_content_rest %}
+            {% for type in shop.types %}
+              {%- if type == blank -%}{%- continue -%}{%- endif -%}
+              {%- if type == filter -%}
+                {%- assign search_filter_selected = type -%}
+                {%- capture search_filter_content_first -%}
+                  <option value="{{ filter_search_by }}:{{ type | escape }}" selected>{{ type }}</option>
+                {%- endcapture -%}
+              {%- else -%}
+                <option value="{{ filter_search_by }}:{{ type | escape }}">{{ type }}</option>
+              {%- endif -%}
+            {% endfor %}
+          {% endcapture %}
+        {%- when 'tag' -%}
+          {%- capture search_filter_content_rest -%}
+            {%- for tag in collections.all.all_tags -%}
+              {%- assign split_tag = tag | split: '_' -%}
+              {%- if split_tag[0] == 'searchfilter' -%}
+                {%- if tag == filter or collection.title == split_tag[1] -%}
+                  {%- assign search_filter_selected = split_tag[1] -%}
+                  {%- capture search_filter_content_first -%}
+                    <option value="{{ filter_search_by }}:{{ tag | escape }}" selected>{{ split_tag[1] }}</option>
+                  {%- endcapture -%}
+                {%- else -%}
+                  <option value="{{ filter_search_by }}:{{ tag | escape }}">{{ split_tag[1] }}</option>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endcapture -%}
+      {%- endcase -%}
+
+      <span class="form-field-select-wrapper live-search-filter-wrapper">
+        <select class="live-search-filter" data-live-search-filter data-filter-all="{{ 'search.form.filter_all' | t }}">
+          {{ search_filter_content_first }}
+          <option value="" {% if search_filter_selected == blank %}selected{% endif %}>{{ 'search.form.filter_all' | t }}</option>
+          <option value="" disabled>------</option>
+          {{ search_filter_content_rest }}
+        </select>
+        <label class="live-search-filter-label form-field-select" data-live-search-filter-label>
+          {%- if search_filter_selected != blank -%}
+            {{ search_filter_selected }}
+          {%- else -%}
+            {{ 'search.form.filter_all' | t }}
+          {%- endif -%}
+        </label>
+        {% render 'icon-chevron-down-small' %}
+      </span>
+    {%- endunless -%}
+    {% comment %} END Live Search Filter {% endcomment %}
 
         
       <button

@@ -203,6 +203,7 @@
     {% assign rimg_densities_w = rimg_w | times: i | round %}
     {% assign rimg_densities_h = rimg_h | times: i | round %}
 
+
     {% assign rimg_density = rimg_density | append: ' ' %}
 
     {% if rimg_densities_w > img.width or rimg_densities_h > img.height %}

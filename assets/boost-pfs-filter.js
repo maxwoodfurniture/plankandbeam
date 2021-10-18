@@ -406,6 +406,7 @@ var boostPFSFilterConfig = {
             swatchOptionIndex = index + 1;
           }
         })
+
         if (swatchValue) {
           var swatch = '<label data-img="{{swatchImage}}">' +
             '<input class="productitem--swatches-input" type="radio" name="swatch" value="{{swatchValue}}">' +
@@ -433,7 +434,7 @@ var boostPFSFilterConfig = {
           if (boostPFSConfig.custom.swatches_option_style == "variant_image" && variant.image) {
             backgroundImage = Utils.optimizeImage(variant.image, '50x');
           } else {
-            backgroundImage = boostPFSAppConfig.general.file_url.split('?')[0] + slugifyValue + '.png';
+            backgroundImage = boostPFSAppConfig.general.file_url.split('?')[0] + boostPFSConfig.custom.swatch_trigger + '-' + slugifyValue + '.jpg';
           }
 
           var swatchImage = Utils.optimizeImage(variant.image, '512x');
@@ -501,6 +502,19 @@ var boostPFSFilterConfig = {
     //   console.log(mainImage);
     //   el.addEventListener('click', (e) => { e.preventDefault(); console.log(el); })
     // });
+  }
+
+  function toggleSwatchExpanded() {
+    const swatchesEl = this.el.querySelector('[data-swatches]');
+
+    if (this.expanded) {
+      this.expanded = false;
+      swatchesEl.classList.remove('productitem--swatches-expanded');
+      this.swatchCount.innerText = `+${this.swatches.length - this.showSwatchCount}`;
+    } else {
+      this.expanded = true;
+      swatchesEl.classList.add('productitem--swatches-expanded');
+    }
   }
 
   /************************** END BUILD PRODUCT LIST **************************/
@@ -643,6 +657,7 @@ var boostPFSFilterConfig = {
       jQ(Selector.products + ' [data-rimg="lazy"]').attr('data-rimg', 'loaded');
     }
     registerSwatchEvents();
+    
   };
 
   // Build additional elements
