@@ -449,7 +449,7 @@ var boostPFSFilterConfig = {
       })
 
       if (swatchValues.length > 0) {
-        var html = '<div class="productitem--swatches {{swatchClass}}" data-swatches>' +
+        var html = '<div class="productitem--swatches {{swatchClass}} boost" data-swatches>' +
           '<script type="application/json" data-swatch-data>' +
           '{' +
           '"hash": "{{itemDataSha256}}",' +
@@ -457,7 +457,7 @@ var boostPFSFilterConfig = {
           '"variants": {{variantsJson}}' +
           '}' +
           '</script>' +
-          '<form class="productitem--swatches-container" data-swatches-container>' +
+          '<form class="productitem--swatches-container boost" data-swatches-container>' +
           swatches.join(' ') +
           '</form>' +
           '<button class="productitem--swatches-count-wrapper" data-swatch-count-wrapper>' +
@@ -657,7 +657,13 @@ var boostPFSFilterConfig = {
       jQ(Selector.products + ' [data-rimg="lazy"]').attr('data-rimg', 'loaded');
     }
     registerSwatchEvents();
-    
+    // document.querySelectorAll('[data-swatches-container]').forEach((swatch) => {
+    //   new window.Flickity(swatch, {
+    //     pageDots: false,
+    //     prevNextButtons: false,
+    //     cellAlign: 'left'
+    //   });
+    // });
   };
 
   // Build additional elements
