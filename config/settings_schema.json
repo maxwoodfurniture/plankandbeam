@@ -776,5 +776,20 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "Klaviyo",
+    "settings": [
+      {
+        "type":"header",
+        "content": "Klaviyo"
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_site_id",
+        "default": "WbANiQ",
+        "label": "Klaviyo Site ID"
+      }
+    ]
   }
 ]

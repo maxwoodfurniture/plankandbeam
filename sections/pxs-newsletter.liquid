@@ -53,15 +53,7 @@
         </div>
       {% endif %}
     </div>
-
-    {%
-      render 'newsletter',
-      pxs_newsletter_image: pxs_newsletter_image,
-      pxs_newsletter_form_success: pxs_newsletter_form_success,
-      pxs_newsletter_form_placeholder: pxs_newsletter_form_placeholder,
-      pxs_newsletter_form_submit: pxs_newsletter_form_submit,
-      pxs_newsletter_form_id: pxs_newsletter_form_id
-    %}
+    <div class="klaviyo-form-W4vfNn"></div>
   </div>
 </section>
 
@@ -81,6 +73,18 @@
       "id": "text",
       "label": "Text",
       "default": "<p>Invite customers to join your mailing list.</p>"
+    },
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Label",
+      "default": "Email address"
+    },
+    {
+      "type": "text",
+      "id": "submit_text",
+      "label": "Submit button text",
+      "default": "Sign up"
     },
     {
       "type": "image_picker",
