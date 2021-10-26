@@ -501,5 +501,11 @@
     <!--begin-boost-pfs-js-->
       {% render 'boost-pfs' %}
     <!--end-boost-pfs-js-->
+
+    <!-- Begin Searchspring -->
+    {% if settings.ss_enable %}
+      {% render 'ss-intellisuggest' %}
+    {% endif %}  
+    <!-- End Searchspring -->
 </body>
 </html>
