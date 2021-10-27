@@ -31489,7 +31489,11 @@ class ProductDetails {
     this.paymentTerms.update(currentVariant.id);
 
     if (this.useHistory) {
+      // Found at https://stackoverflow.com/questions/8648892/how-to-convert-url-parameters-to-a-javascript-object
+      const search = location.search.substring(1);
+      const params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       const url = `${this.product.handle}?${jquery_default().param({
+        ...params,
         variant: currentVariant.id
       })}`;
       history.replaceState({}, 'variant', url);
