@@ -1,9 +1,184 @@
 {
   "current": {
+    "color_background": "#ffffff",
+    "color_text": "#3b3b3b",
+    "color_text_light": "#807f80",
+    "color_links": "#688597",
+    "color_button_background": "#3b3b3b",
+    "color_button_text": "#f1efee",
+    "color_button_secondary_text": "#688597",
+    "color_header_background": "#ffffff",
+    "color_header_text": "#000000",
+    "color_product_review_star": "#3b3b3b",
+    "color_footer_background": "#f1efee",
+    "color_footer_text": "#3b3b3b",
+    "overlay_opacity": 50,
+    "type_size_base": 16,
+    "type_heading": "goudy_old_style_n4",
+    "type_heading_size": "1.2",
+    "type_heading_spacing": 0,
+    "type_body": "source_sans_pro_n4",
+    "type_menu": "source_sans_pro_n4",
+    "type_menu_spacing": 2,
+    "type_button": "futura_n4",
+    "type_button_spacing": 8,
+    "type_section": "futura_n4",
+    "type_section_spacing": 2,
+    "reduce_animations": true,
+    "layout_max_width": 1400,
+    "product_sales_badge": false,
+    "product_sales_badge_style": "text",
+    "product_option_style": "radio",
+    "sold_out_options": "selectable",
+    "show_dynamic_checkout_button": false,
+    "swatches_product_card_size": 32,
+    "swatches_product_page_size": 64,
+    "swatches_swatch_trigger": "Finish",
+    "swatches_option_style": "color_swatch",
+    "product_show_vendor": false,
+    "product_grid_emphasize_price": true,
+    "product_grid_show_atc_button": false,
+    "product_grid_show_atc": "desktop",
+    "product_grid_show_second_image": false,
+    "product_grid_enable_quickshop": false,
+    "product_grid_quick_shop_display": "desktop",
+    "social_instagram": "",
+    "social_email": "customercare@plankandbeam.com",
+    "favicon": "shopify:\/\/shop_images\/plankbeam-fav.png",
+    "enable_checkout_lock_icon": false,
+    "continue_shopping_url": "shopify:\/\/collections",
     "checkout_logo_image": "shopify:\/\/shop_images\/plankbeam.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "shopify:\/\/shop_images\/architectural_background_-_PB_Colors.png",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#3b3b3b",
+    "checkout_button_color": "#1878b9",
+    "checkout_error_color": "#e22120",
     "type_header_font": "avenir_next_n6",
     "type_base_font": "avenir_next_n4",
-    "content_for_index": []
+    "sections": {
+      "static-announcement": {
+        "type": "static-announcement",
+        "settings": {
+          "show_announcement": true,
+          "homepage_announcement": false,
+          "announcement_text": "Fast, free shipping on orders $100* or more!",
+          "announcement_text_mobile": "Fast, free shipping on orders $100* or more!",
+          "announcement_link": "shopify:\/\/policies\/shipping-policy",
+          "announcement_color": "#3b3b3b",
+          "announcement_background": "#dfdbd8"
+        }
+      },
+      "static-utility-bar": {
+        "type": "static-utility-bar",
+        "settings": {
+          "enable": true,
+          "use_full_width": false,
+          "background_color": "#3b3b3b",
+          "link_color": "#f1efee",
+          "link_hover_color": "#dfdbd8",
+          "border_color": "rgba(0,0,0,0)",
+          "menu": "footer",
+          "show_menu_mobile": true,
+          "mobile_layout": "below",
+          "show_locale_selector": false,
+          "show_currency_selector": false,
+          "show_social_icons": true
+        }
+      },
+      "static-header": {
+        "type": "static-header",
+        "blocks": {
+          "64152f98-2d14-4734-872b-4977164edba2": {
+            "type": "meganav_sidenav",
+            "settings": {
+              "meganav_trigger": "shop",
+              "submenu_layout": "collection_images",
+              "image_aspect_ratio": "square",
+              "image_crop": true
+            }
+          }
+        },
+        "block_order": [
+          "64152f98-2d14-4734-872b-4977164edba2"
+        ],
+        "settings": {
+          "sticky_header": true,
+          "full_width_header": false,
+          "logo": "shopify:\/\/shop_images\/header-logo.png",
+          "logo_height": 100,
+          "logo_width": 250,
+          "filter_search_by": "product_type",
+          "enable_live_search": true,
+          "show_mobile_search_bar": true,
+          "enable_live_search_images": true,
+          "enable_live_search_articles_pages": false,
+          "quick_links": "footer",
+          "menu": "main-menu",
+          "menu_mobile": "mobile-main-menu",
+          "secondary_menu": "",
+          "small_promo_heading": "Best Deals of the Holiday Season",
+          "small_promo_text": "<p>Black Friday deals are going on all month long! Shop early and save.<\/p>",
+          "small_promo_text_mobile": "<p>Black Friday deals are going on all month long! Shop early and save.<\/p>",
+          "small_promo_link": "shopify:\/\/collections\/sale",
+          "small_promo_icon": "icon-gift-card",
+          "cart_icon": "icon-cart"
+        }
+      },
+      "static-footer": {
+        "type": "static-footer",
+        "blocks": {
+          "639641aa-8f7d-4eef-ae48-0a6f17a513b4": {
+            "type": "menu",
+            "settings": {
+              "menu": "footer"
+            }
+          },
+          "3e482aea-662f-4993-86cd-eeb16f1910bb": {
+            "type": "menu",
+            "settings": {
+              "menu": "customer-service"
+            }
+          },
+          "static-footer-1": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Subscribe",
+              "text": "<p>Sign up to our newsletter for the latest product launches, exclusive sales, design inspiration + more.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "639641aa-8f7d-4eef-ae48-0a6f17a513b4",
+          "3e482aea-662f-4993-86cd-eeb16f1910bb",
+          "static-footer-1"
+        ],
+        "settings": {
+          "payment_icons": false,
+          "show_locale_selector": true,
+          "show_currency_selector": true,
+          "additional_menu": "policies"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "163251160998f2ac03": {
+        "type": "shopify:\/\/apps\/product-filter-search\/blocks\/boost-pfs\/7fc998ae-a150-4367-bab8-505d8a4503f7",
+        "disabled": true,
+        "settings": {}
+      },
+      "1634736710f0d97d3a": {
+        "type": "shopify:\/\/apps\/form-builder-with-file-upload\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Default": {
