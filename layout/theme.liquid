@@ -116,10 +116,12 @@
   {% render 'boost-pfs-style' %}
 <!--end-boost-pfs-filter-css-->
 
-
+{% if settings.ss_enable %}
+        {% render 'ss-script' %}
+    {% endif %}
 </head>
 
-  <body class="template-{{ template.name }}" data-instant-allow-query-string {% if settings.reduce_animations %}data-reduce-animations{% endif %}>
+  <body class="template-{{ template.name }}{% if settings.ss_enable and collection.handle and collection.handle == settings.ss_collection_handle %} ss-shop{% endif %}" data-instant-allow-query-string {% if settings.reduce_animations %}data-reduce-animations{% endif %}>
     {% render 'elevar-body-end' %}
     
     <script>
@@ -508,10 +510,6 @@
     <!-- Stamped - Begin Script-->
     <script async type="text/javascript" data-api-key="" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
     <!-- Stamped - End Script -->
-  
-    <!--begin-boost-pfs-js-->
-      {% render 'boost-pfs' %}
-    <!--end-boost-pfs-js-->
 
     <!-- Begin Searchspring -->
     {% if settings.ss_enable %}

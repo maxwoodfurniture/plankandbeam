@@ -1,0 +1,9 @@
+{% capture to_hash %}
+  {{ shop.money_format | strip_html }}
+  {{ settings | json }}
+  {{ 'product.buttons.add_to_cart' | t }}
+  {{ 'product.buttons.sold_out' | t  }}
+  {{ product | json }}
+{% endcapture %}
+{% assign to_hash = to_hash | replace: ' ', '' | sha256 %}
+<span id="productHash" data-hash={{ to_hash }}></span>
