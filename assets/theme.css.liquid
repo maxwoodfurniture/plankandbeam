@@ -21134,3 +21134,54 @@ body:not(.user-is-tabbing) .rte .tabs .grouped-content-trigger {
   font-family: {{fonts_type_section_family}};
   font-weight: 600;
 }
+
+/* Filters */
+.filters-h  {
+  display: table;
+}
+
+.filters-h .filter-form {
+  display: table;
+}
+
+.filters-h .collection-filters__filter-group {
+  display: table-cell;
+}
+
+.filters-h .productgrid--filter-title {
+  display: table-cell;
+  font-size: var(--font-size-body-small);
+  font-weight: 700;
+}
+
+.filters-h .collection-filters__filter-group {
+  border: none;
+  padding: 1rem;
+  position: relative;
+}
+
+.filters-h [data-accordion-content] {
+  position: absolute;
+}
+
+.filters-h [data-accordion-content][data-accordion-state=open] {
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  background: white;
+  padding: 1rem;
+  min-width: 10vh;
+}
+
+.filters-h .collection-filters__price-range-form[data-accordion-state=open] {
+  min-width: 20vh;
+}
+
+.filters-h .collection-filters__filter-title { 
+  font-weight: 400;
+}
+
+@media screen and (max-width: 860px) {
+  .filters-h {
+    display: none;
+  }
+}
