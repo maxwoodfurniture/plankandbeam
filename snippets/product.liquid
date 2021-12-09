@@ -146,7 +146,8 @@
                 <div class="product-vendor">
                   {% unless onboarding %}
                     {%- capture vendor_link -%}
-                      {{ product.vendor | link_to_vendor }}
+                      <!-- {{ product.vendor | link_to_vendor }} -->
+                      {{ product.vendor | link_to: '/pages/about-plank-beam' }}
                     {%- endcapture -%}
                     {{ 'product.general.by_vendor_html' | t: vendor_link: vendor_link }}
                   {% else %}
