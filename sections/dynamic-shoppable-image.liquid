@@ -450,7 +450,7 @@
                   {% endfor %}
                   
                   {% assign show_range = show_range | default: false %}
-                  {% assign price = price | default: product.price %}
+                  {% assign price = product.price | default: 0 %}
                   {% assign compare_at_price = compare_at_price | default: product.compare_at_price %}
                   {% assign variants = product.variants %}
                   {% assign price_range_format = price_range_format | default: 'range' %}
@@ -465,7 +465,7 @@
                   {% assign include_tax_line = include_tax_line | default: false %}
                   {% assign include_compare_price = include_compare_price | default: true %}
                   
-                  <div class="price {{ class_root }}__price {% if compare_at_price_varies %}price--varies{% endif %}">
+                  <div class="price {{ class_root }}__price {% if compare_at_price_varies %}price--varies{% endif %}" data-price-temp="{{product.title}} {{ product.price }}">
                     {% if include_compare_price %}
                       <div
                         class="price__compare-at {% if emphasize_price or on_sale and show_original %}visible{% endif %}"
