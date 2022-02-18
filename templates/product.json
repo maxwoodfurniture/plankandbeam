@@ -15,16 +15,16 @@
           "type": "price",
           "settings": {}
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "form": {
           "type": "form",
           "settings": {}
         },
-        "share": {
-          "type": "share",
+        "300af7a2-3333-44cf-ad47-b37597cc0788": {
+          "type": "sku",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
           "settings": {}
         }
       },
@@ -32,29 +32,88 @@
         "title",
         "vendor",
         "price",
-        "description",
         "form",
-        "share"
+        "300af7a2-3333-44cf-ad47-b37597cc0788",
+        "description"
       ],
       "settings": {
         "gallery_aspect_ratio": "natural",
-        "gallery_image_crop": false,
+        "gallery_image_crop": true,
         "gallery_thumbnail_position": "below",
         "gallery_video_autoplay": true,
         "gallery_video_looping": true,
-        "gallery_hover_zoom": "disabled",
-        "gallery_click_to_zoom": "always"
+        "gallery_hover_zoom": "replace",
+        "gallery_click_to_zoom": "desktop"
       }
     },
-    "recommendations": {
-      "type": "static-product-recommendations",
+    "163372064575bd3361": {
+      "type": "dynamic-highlights-banner",
+      "disabled": true,
+      "blocks": {
+        "163372064575bd3361-0": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Solid Wood Construction",
+            "text": "<p>When you spend $100+<\/p>",
+            "link": ""
+          }
+        },
+        "163372064575bd3361-1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-cell-phone",
+            "title": "Color-matched Hardware",
+            "text": "<p>+1 (201) 555-5555<\/p>",
+            "link": ""
+          }
+        },
+        "163372064575bd3361-2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-chat-alternate",
+            "title": "Low-VOC Finishes",
+            "text": "<p>We offer 24-hour chat support<\/p>",
+            "link": ""
+          }
+        },
+        "163372064575bd3361-3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-pin",
+            "title": "500lb Weight Capacity",
+            "text": "<p>Find a store near you<\/p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "163372064575bd3361-0",
+        "163372064575bd3361-1",
+        "163372064575bd3361-2",
+        "163372064575bd3361-3"
+      ],
       "settings": {
-        "show_product_recommendations": true
+        "section_spacing": false,
+        "section_width": "content-width",
+        "icon_layout": "left",
+        "color": "#4d4d4d",
+        "icon_color": "#4d4d4d",
+        "background_color": "#f8f8f8",
+        "mobile_layout": "slider",
+        "grid_items_per_row": 2
       }
     },
     "reviews": {
       "type": "static-product-reviews",
       "settings": {}
+    },
+    "recommendations": {
+      "type": "static-product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like"
+      }
     },
     "recently-viewed": {
       "type": "static-recently-viewed",
@@ -65,8 +124,9 @@
   },
   "order": [
     "main",
-    "recommendations",
+    "163372064575bd3361",
     "reviews",
+    "recommendations",
     "recently-viewed"
   ]
 }

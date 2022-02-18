@@ -2,7 +2,23 @@
   "sections": {
     "main": {
       "type": "static-cart",
-      "settings": {}
+      "blocks": {
+        "4a22c953-3f6f-4fe2-ae48-bc308ee13ec8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/tall_feature_banner.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "4a22c953-3f6f-4fe2-ae48-bc308ee13ec8"
+      ],
+      "settings": {
+        "show_sku": true,
+        "enable_order_notes": true,
+        "enable_shipping_calc": false,
+        "shipping_calc_default_country": "United States"
+      }
     }
   },
   "order": [

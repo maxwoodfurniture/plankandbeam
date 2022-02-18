@@ -1,19 +1,43 @@
 {
   "sections": {
-    "16367370145ec697df": {
-      "type": "pxs-image-with-text-overlay",
+    "1640880499bb97e1b9": {
+      "type": "dynamic-shoppable-image",
+      "blocks": {
+        "16408804990989a30e-0": {
+          "type": "hotspot",
+          "settings": {
+            "product": "rustic-queen-bed-with-solid-headboard",
+            "x_axis": 81,
+            "y_axis": 67
+          }
+        },
+        "16408804990989a30e-1": {
+          "type": "hotspot",
+          "settings": {
+            "product": "rustic-1-drawer-nightstand",
+            "x_axis": 91,
+            "y_axis": 23
+          }
+        }
+      },
+      "block_order": [
+        "16408804990989a30e-0",
+        "16408804990989a30e-1"
+      ],
       "settings": {
-        "section_height": "original",
-        "image": "shopify:\/\/shop_images\/Plaid_Bow-soft-plaid.jpg",
-        "position": "center center",
-        "title": "The Holiday Sale is Here",
-        "text": "<p>Give the gift of home this holiday with our lowest prices of the season.<\/p>",
-        "content_position": "bottom-right",
-        "color": "#000000",
-        "overlay_background": "#fafafa",
-        "overlay_opacity": 0,
-        "link": "shopify:\/\/collections\/sale",
-        "button_text": "Shop Now"
+        "visible_on_device": "both",
+        "title": "",
+        "image": "shopify:\/\/shop_images\/Untitled_design_7.png",
+        "image_width": "full",
+        "aspect_ratio": "natural",
+        "link_text": "View product",
+        "textbox_title": "Perfect Style. Crafted for Every Space.",
+        "textbox_subheading": "<p>Discover everything you need to give your space a stylish refresh.<\/p>",
+        "textbox_button_label": "Shop Beds",
+        "textbox_button_link": "shopify:\/\/collections\/all",
+        "textbox_button_style": "primary",
+        "textbox_text_alignment": "center",
+        "textbox_text_position": "left"
       }
     },
     "dynamic_collection_list": {
@@ -23,6 +47,7 @@
           "type": "collection",
           "settings": {
             "collection": "space-saving-compact-loft-beds-sleep-store-work",
+            "image": "shopify:\/\/shop_images\/Untitled_design_11.png",
             "title": "Sleep, Work, Store in One"
           }
         },
@@ -37,6 +62,7 @@
           "type": "collection",
           "settings": {
             "collection": "bunk-beds",
+            "image": "shopify:\/\/shop_images\/195331-185_DRIFTWOOD_CENTER.jpg",
             "title": "Bunk Beds for Shared Spaces"
           }
         },
@@ -44,6 +70,7 @@
           "type": "collection",
           "settings": {
             "collection": "loft-beds",
+            "image": "shopify:\/\/shop_images\/Untitled_design_10.png",
             "title": "Space-Saving Loft Beds"
           }
         },
@@ -51,6 +78,7 @@
           "type": "collection",
           "settings": {
             "collection": "accessories",
+            "image": "shopify:\/\/shop_images\/PB184301-001__3.jpg",
             "title": "Modern Home Furniture"
           }
         }
@@ -63,44 +91,29 @@
         "collection-4"
       ],
       "settings": {
-        "title": "Everything for Their Wish List, and Yours",
+        "title": "Explore All Our Bestselling Collections",
         "thumbnail_columns_desktop": 5,
         "thumbnail_columns_mobile": 3,
-        "image-crop": "round",
+        "image-crop": "original",
         "cta_label": "Shop All",
         "cta_link": "shopify:\/\/collections",
-        "cta_button_style": "primary"
+        "cta_button_style": "secondary"
       }
     },
-    "1634566250abf82025": {
-      "type": "dynamic-featured-collection",
-      "blocks": {
-        "5119285f-4224-4d2f-98d9-f2fe86147d88": {
-          "type": "title_card",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/stone_all_in_one.jpg",
-            "horizontal_size": "2",
-            "vertical_size": "2",
-            "text_alignment": "center-center",
-            "pre_heading": "Your Space. Now With Even More of It.",
-            "heading": "Compact Collection",
-            "text_color": "#ffffff",
-            "cta_label": "Maximize Your Space",
-            "overlay_color": "#000000",
-            "overlay_opacity": 25
-          }
-        }
-      },
-      "block_order": [
-        "5119285f-4224-4d2f-98d9-f2fe86147d88"
-      ],
+    "16439115353b20d21f": {
+      "type": "dynamic-video",
       "settings": {
-        "title": "Space-saving style with versatile designs: Maximize room for storage + work",
-        "layout": "grid",
-        "collection": "space-saving-compact-loft-beds-sleep-store-work",
-        "product_count": 6,
-        "cta_label": "Shop Compact Collection",
-        "cta_button_style": "primary"
+        "title": "",
+        "url": "https:\/\/youtu.be\/uyvpLuuwB3w",
+        "show_caption": false,
+        "caption": "<p>A short description of the video.<\/p>",
+        "autoplay": true,
+        "aspect_ratio": "16-9",
+        "cover": "shopify:\/\/shop_images\/MicrosoftTeams-image_5.png",
+        "position": "center-center",
+        "show_overlay": false,
+        "background": "#000000",
+        "opacity": 50
       }
     },
     "16361385542984f30f": {
@@ -109,11 +122,11 @@
         "16361385542984f30f-0": {
           "type": "promotion",
           "settings": {
-            "image": "shopify:\/\/shop_images\/FULL_BED_WHITE_TOP_DOWN_VIEW.jpg",
+            "image": "shopify:\/\/shop_images\/Untitled_design_14.png",
             "title": "",
             "text": "",
             "color": "#ffffff",
-            "block_link": "shopify:\/\/products\/full-size-bed",
+            "block_link": "shopify:\/\/collections\/accessories",
             "button_text": "",
             "button_style": "primary",
             "show_overlay": false,
@@ -125,10 +138,10 @@
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/architectural_background_-_PB_Colors.png",
-            "title": "Classic Full Bed",
-            "text": "With it's modern twist on a classic style, this bed is a best-seller for a reason. On sale now for the holiday season.",
+            "title": "New for 2022",
+            "text": "Modern Benches Made to Be Multifunctional",
             "color": "#4d4d4d",
-            "block_link": "shopify:\/\/products\/full-size-bed",
+            "block_link": "shopify:\/\/collections\/accessories",
             "button_text": "Shop Now",
             "button_style": "primary",
             "show_overlay": false,
@@ -139,11 +152,11 @@
         "16361385542984f30f-2": {
           "type": "promotion",
           "settings": {
-            "image": "shopify:\/\/shop_images\/379.00_259.99.png",
+            "image": "shopify:\/\/shop_images\/Untitled_design_12.png",
             "title": "",
             "text": "",
             "color": "#4d4d4d",
-            "block_link": "shopify:\/\/products\/full-size-bed",
+            "block_link": "shopify:\/\/collections\/accessories",
             "button_text": "",
             "button_style": "primary",
             "show_overlay": false,
@@ -165,8 +178,83 @@
         "compress_blocks": false
       }
     },
+    "163673690888ee0af2": {
+      "type": "dynamic-featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "layout": "grid",
+        "collection": "rustic-collection-rustic-beds-storage-home-furniture",
+        "product_count": 5,
+        "cta_label": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "1634566250abf82025": {
+      "type": "dynamic-featured-collection",
+      "blocks": {
+        "5119285f-4224-4d2f-98d9-f2fe86147d88": {
+          "type": "title_card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_16.png",
+            "horizontal_size": "2",
+            "vertical_size": "2",
+            "text_alignment": "center-center",
+            "pre_heading": "Your Space. Now With Even More of It.",
+            "heading": "Compact Collection",
+            "text_color": "#ffffff",
+            "cta_label": "Maximize Your Space",
+            "overlay_color": "#000000",
+            "overlay_opacity": 25
+          }
+        }
+      },
+      "block_order": [
+        "5119285f-4224-4d2f-98d9-f2fe86147d88"
+      ],
+      "settings": {
+        "title": "Space-saving style with versatile designs: Maximize room for storage + work",
+        "layout": "grid",
+        "collection": "space-saving-compact-loft-beds-sleep-store-work",
+        "product_count": 6,
+        "cta_label": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "164088196625e77b46": {
+      "type": "dynamic-featured-collection",
+      "blocks": {
+        "cf6e3b38-b8c8-4fca-ba0a-6df14cde9221": {
+          "type": "title_card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_15.png",
+            "horizontal_size": "2",
+            "vertical_size": "2",
+            "text_alignment": "center-center",
+            "pre_heading": "The Modern Take On Farmhouse Design",
+            "heading": "Rustic Collection",
+            "text_color": "#ffffff",
+            "cta_label": "See the Styles",
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "cf6e3b38-b8c8-4fca-ba0a-6df14cde9221"
+      ],
+      "settings": {
+        "title": "Discover the chic, rustic style designed for every restful retreat",
+        "layout": "grid",
+        "collection": "rustic-collection-rustic-beds-storage-home-furniture",
+        "product_count": 6,
+        "cta_label": "",
+        "cta_button_style": "primary"
+      }
+    },
     "dynamic_shoppable_image": {
       "type": "dynamic-shoppable-image",
+      "disabled": true,
       "blocks": {
         "hotspot-2": {
           "type": "hotspot",
@@ -216,6 +304,7 @@
     },
     "1634564998bc4a75a3": {
       "type": "dynamic-shoppable-image",
+      "disabled": true,
       "blocks": {
         "1634564998bc4a75a3-0": {
           "type": "hotspot",
@@ -261,17 +350,6 @@
         "textbox_button_style": "primary",
         "textbox_text_alignment": "center",
         "textbox_text_position": "left"
-      }
-    },
-    "163673690888ee0af2": {
-      "type": "dynamic-featured-collection",
-      "settings": {
-        "title": "",
-        "layout": "grid",
-        "collection": "rustic-collection-rustic-beds-storage-home-furniture",
-        "product_count": 5,
-        "cta_label": "",
-        "cta_button_style": "primary"
       }
     },
     "dynamic_promo_mosaic": {
@@ -376,17 +454,6 @@
         "text_size": "large"
       }
     },
-    "16337063155cb415aa": {
-      "type": "pxs-newsletter",
-      "settings": {
-        "title": "The Best in Furniture, Delivered to Your Inbox",
-        "text": "<p>Sign up to our newsletter for the latest product launches, exclusive sales, design inspiration + more.<\/p>",
-        "label_text": "Email address",
-        "submit_text": "Sign up",
-        "desktop_alignment": "left",
-        "mobile_alignment": "top"
-      }
-    },
     "dynamic_highlights_banner": {
       "type": "dynamic-highlights-banner",
       "disabled": true,
@@ -448,19 +515,32 @@
         "mobile_layout": "grid",
         "grid_items_per_row": 2
       }
+    },
+    "16337063155cb415aa": {
+      "type": "pxs-newsletter",
+      "settings": {
+        "title": "The Best in Furniture, Delivered to Your Inbox",
+        "text": "<p>Sign up to our newsletter for the latest product launches, exclusive sales, design inspiration + more.<\/p>",
+        "label_text": "Email address",
+        "submit_text": "Sign up",
+        "desktop_alignment": "left",
+        "mobile_alignment": "top"
+      }
     }
   },
   "order": [
-    "16367370145ec697df",
+    "1640880499bb97e1b9",
     "dynamic_collection_list",
-    "1634566250abf82025",
+    "16439115353b20d21f",
     "16361385542984f30f",
+    "163673690888ee0af2",
+    "1634566250abf82025",
+    "164088196625e77b46",
     "dynamic_shoppable_image",
     "1634564998bc4a75a3",
-    "163673690888ee0af2",
     "dynamic_promo_mosaic",
     "dynamic_testimonials",
-    "16337063155cb415aa",
-    "dynamic_highlights_banner"
+    "dynamic_highlights_banner",
+    "16337063155cb415aa"
   ]
 }
