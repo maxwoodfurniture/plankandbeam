@@ -31332,7 +31332,7 @@ class ProductDetails {
       $badge: this.$details.find('[data-badge-sales]'),
       $badgeRange: this.$details.find('[data-badge-sales-range]'),
       $badgeSingle: this.$details.find('[data-badge-sales-single]'),
-      $sku: this.$details.find('.product-sku[data-product-sku]'),
+      $sku: this.$details.find('[data-product-sku-display]'),
       unitPrice: this.$details[0].querySelector('[data-unit-price]'),
       totalQuantity: this.$details[0].querySelector('[data-total-quantity]'),
       unitPriceAmount: this.$details[0].querySelector('[data-unit-price-amount]'),
@@ -31491,6 +31491,7 @@ class ProductDetails {
     if (this.useHistory) {
       // Found at https://stackoverflow.com/questions/8648892/how-to-convert-url-parameters-to-a-javascript-object
       const search = location.search.substring(1);
+      console.log('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       const params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       const url = `${this.product.handle}?${jquery_default().param({
         ...params,
@@ -31504,19 +31505,32 @@ class ProductDetails {
     if (!this.productPricing) {
       return;
     }
-
+    let variantPrice = variant.price;
     const compareAtPrice = this.variantFields.hiddenComparePrice.innerHTML;
     const currentPrice = this.variantFields.hiddenCurrentPrice.innerHTML;
     this.variantFields.$compareAtPrice[0].innerHTML = compareAtPrice;
     this.variantFields.$priceContainer[0].innerHTML = currentPrice;
+
     this.variantFields.$priceMoney = this.$details.find('[data-price-container] [data-price]');
-    this.variantFields.$compareAtPriceMoney = this.$details.find('[data-price-compare-container] [data-price-compare]'); // Update compare at price
+    this.variantFields.$compareAtPriceMoney = this.$details.find('[data-price-compare-container] [data-price-compare]'); 
 
-    const hasComparePrice = !!variant.compare_at_price && variant.compare_at_price > variant.price;
+    // Hide compare at if variant is unavailable.
+    const hasComparePrice = !!variant.compare_at_price && variant.compare_at_price > variant.price && variant.available;
     this.variantFields.$compareAtPrice.toggleClass('visible', hasComparePrice);
-    this.variantFields.$compareAtPriceMoney.text(Shopify.formatMoney(variant.compare_at_price, this.settings.money_format)); // Update price
 
-    this.variantFields.$priceMoney.text(Shopify.formatMoney(variant.price, this.settings.money_format));
+    // If the variant is unavailable, set price to compare_at_price and remove sale label.
+    if (!variant.available) {
+      variantPrice = variant.compare_at_price;
+      this.variantFields.$priceContainer[0].classList.remove('price__current--on-sale')
+    }
+    // Else add the sale label back.
+    else if (variant.compare_at_price > variant.price) {
+      this.variantFields.$priceContainer[0].classList.add('price__current--on-sale')
+    }
+
+    // Update price and compare at price
+    this.variantFields.$compareAtPriceMoney.text(Shopify.formatMoney(variant.compare_at_price, this.settings.money_format)); 
+    this.variantFields.$priceMoney.text(Shopify.formatMoney(variantPrice, this.settings.money_format));
   }
 
   _showPriceRange() {
