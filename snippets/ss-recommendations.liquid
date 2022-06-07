@@ -1,0 +1,4 @@
+{%- assign profile = profile | default: "home" -%}
+{% if settings.ss_enable %}
+    <script type="searchspring/personalized-recommendations" profile="{{ profile }}"></script>
+{% endif %}

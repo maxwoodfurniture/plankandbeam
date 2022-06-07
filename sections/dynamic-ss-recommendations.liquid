@@ -1,0 +1,22 @@
+{%- render 'ss-recommendations', profile: section.settings.profile -%}
+
+{% schema %}
+{
+	"name": "SS Recommendations",
+	"class": "searchspring-recommendations-home",
+	"settings": [
+		{
+			"type": "text",
+			"id": "profile",
+			"label": "profile",
+			"default": "home"
+		}
+	],
+	"presets": [
+		{
+			"category": "Searchspring",
+			"name": "Searchspring Recommendations"
+		}
+	]
+}
+{% endschema %}

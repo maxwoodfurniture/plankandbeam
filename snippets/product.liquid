@@ -185,7 +185,10 @@
                   include_range: false,
                   selected_variant: selected_variant,
                 %}
-
+                <!-- {% assign include_compare_price = true %}
+                {% if selected_variant.inventory_quantity > 0 %}
+                  {% assign include_compare_price = false %}
+                {% endif %} -->
                 {%
                   render 'product-price',
                   product: product,
@@ -201,6 +204,7 @@
                   include_unit_price: true,
                   include_tax_line: true,
                   include_hidden_price: true
+                  include_compare_price: include_compare_price
                 %}
 
                 <form data-payment-terms-target style="display: none;"></form>

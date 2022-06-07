@@ -47,6 +47,7 @@
     "favicon": "shopify:\/\/shop_images\/plankbeam-fav.png",
     "enable_checkout_lock_icon": false,
     "continue_shopping_url": "shopify:\/\/collections",
+    "ss_enable": true,
     "checkout_logo_image": "shopify:\/\/shop_images\/plankbeam.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "medium",
@@ -67,8 +68,8 @@
         "settings": {
           "show_announcement": true,
           "homepage_announcement": false,
-          "announcement_text": "Fast, free shipping on orders $100* or more!",
-          "announcement_text_mobile": "Fast, free shipping on orders $100* or more!",
+          "announcement_text": "In stock and ready to ship! Receive FREE shipping on orders $100 or more.",
+          "announcement_text_mobile": "In stock and ready to ship! Receive FREE shipping on orders $100 or more.",
           "announcement_link": "shopify:\/\/policies\/shipping-policy",
           "announcement_color": "#3b3b3b",
           "announcement_background": "#dfdbd8"
@@ -122,11 +123,11 @@
           "menu": "main-menu",
           "menu_mobile": "mobile-main-menu",
           "secondary_menu": "",
-          "small_promo_heading": "Best Deals of the Holiday Season",
-          "small_promo_text": "<p>Black Friday deals are going on all month long! Shop early and save.<\/p>",
-          "small_promo_text_mobile": "<p>Black Friday deals are going on all month long! Shop early and save.<\/p>",
+          "small_promo_heading": "",
+          "small_promo_text": "",
+          "small_promo_text_mobile": "",
           "small_promo_link": "shopify:\/\/collections\/sale",
-          "small_promo_icon": "icon-gift-card",
+          "small_promo_icon": "icon-delivery-package",
           "cart_icon": "icon-cart"
         }
       },
@@ -168,11 +169,6 @@
     },
     "content_for_index": [],
     "blocks": {
-      "163251160998f2ac03": {
-        "type": "shopify:\/\/apps\/product-filter-search\/blocks\/boost-pfs\/7fc998ae-a150-4367-bab8-505d8a4503f7",
-        "disabled": true,
-        "settings": {}
-      },
       "1634736710f0d97d3a": {
         "type": "shopify:\/\/apps\/form-builder-with-file-upload\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
         "disabled": false,

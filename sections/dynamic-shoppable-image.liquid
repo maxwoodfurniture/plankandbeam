@@ -166,7 +166,7 @@
   {% endif %}
 
   {% if enable_text_box %}
-    <div class="shoppable-image__section-content-wrapper">
+    <div class="shoppable-image__section-content-wrapper" style="background-color:{{ section.settings.background_color }};">
   {% endif %}
   <div class="shoppable-image__wrapper" data-shoppable-image-wrapper data-zoom="{{ background_image | img_url: size, crop: 'center' }}">
     {% if background_image != blank %}
@@ -828,6 +828,12 @@
       "id": "link_text",
       "label": "Product tooltip link text",
       "default": "View product"
+    },
+	{
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#fff"
     },
     {
       "type": "header",

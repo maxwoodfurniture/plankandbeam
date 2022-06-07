@@ -19,9 +19,16 @@
         "enable_shipping_calc": false,
         "shipping_calc_default_country": "United States"
       }
+    },
+    "1654629412b520b38e": {
+      "type": "dynamic-ss-recommendations",
+      "settings": {
+        "profile": "view-cart"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1654629412b520b38e"
   ]
 }

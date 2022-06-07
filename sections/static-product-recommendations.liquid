@@ -16,29 +16,43 @@
 }
   </script>
 
-  <section
-    class="product-section--container product-row--container product-recommendations--container"
-    data-html
-    data-product-recommendations
-    >
-    {% if recommendations.products_count > 0 %}
-      <h2 class="product-section--title product-recommendations--title">
-        {{ section.settings.product_recommendations_heading }}
-      </h2>
+  {% if settings.ss_enable %}
 
-    <ul
-      class="product-section--content product-row"
-      data-product-row
+    <script type="searchspring/personalized-recommendations" profile="similar">
+        seed = '{{ product.variants[0].sku }}';
+    </script>
+
+    <script type="searchspring/personalized-recommendations" profile="pdp-cross-sell">
+        seed = '{{ product.variants[0].sku }}';
+    </script>
+
+  {% else %}
+
+    <section
+      class="product-section--container product-row--container product-recommendations--container"
+      data-html
+      data-product-recommendations
       >
-      {% for product in recommendations.products limit: product_limit %}
-        {%
-          render 'product-grid-item',
-          product: product
-        %}
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </section>
+      {% if recommendations.products_count > 0 %}
+        <h2 class="product-section--title product-recommendations--title">
+          {{ section.settings.product_recommendations_heading }}
+        </h2>
+
+      <ul
+        class="product-section--content product-row"
+        data-product-row
+        >
+        {% for product in recommendations.products limit: product_limit %}
+          {%
+            render 'product-grid-item',
+            product: product
+          %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+
+  {% endif %}
 
   {% render 'quick-shop' %}
 {% endif %}

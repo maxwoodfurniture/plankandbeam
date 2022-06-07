@@ -1,5 +1,17 @@
 {
   "sections": {
+    "165298641669ea528d": {
+      "type": "dynamic-image",
+      "disabled": true,
+      "settings": {
+        "width_mode": "page-width",
+        "image": "shopify:\/\/shop_images\/Graphic_Banner_-_M_L_Desktop_Banner_Template_5.png",
+        "image_mobile": "shopify:\/\/shop_images\/Mobile_Banner_-_M_L_Desktop_Banner_Template_3.png",
+        "height": 0,
+        "image_link": "shopify:\/\/collections\/sale",
+        "border_radius": 0
+      }
+    },
     "main": {
       "type": "static-product",
       "blocks": {
@@ -123,6 +135,7 @@
     }
   },
   "order": [
+    "165298641669ea528d",
     "main",
     "163372064575bd3361",
     "reviews",

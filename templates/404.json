@@ -3,9 +3,16 @@
     "main": {
       "type": "404",
       "settings": {}
+    },
+    "1654629350596c3d1a": {
+      "type": "dynamic-ss-recommendations",
+      "settings": {
+        "profile": "404"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1654629350596c3d1a"
   ]
 }
