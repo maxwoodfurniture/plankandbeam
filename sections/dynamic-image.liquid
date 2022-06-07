@@ -1,0 +1,107 @@
+{% comment %} Set class to hide on desktop or mobile {% endcomment %}
+{% if section.settings.display_mode == 'desktop' %}
+  {% assign display_mode_class = 'desktop-only' %}
+{% elsif section.settings.display_mode == 'mobile' %}
+  {% assign display_mode_class = 'mobile-only' %}
+{% endif %}
+
+{% comment %} Set page width or content width. {% endcomment %}
+{% if section.settings.width_mode == 'page-width' %}
+  {% assign container_class = 'container page-width' %}
+{% else %}
+  {% assign container_class = 'container' %}
+{% endif %}
+
+<style>
+  {% if section.settings.height > 0 %}
+    [data-section-id={{ section.id }}] .image-section__container {
+      height: {{ section.settings.height }}px;
+    }
+
+    [data-section-id={{ section.id }}] .image-section__container img {
+      height: {{ section.settings.height }}px;
+      object-fit: cover;
+    }
+  {% endif %}
+
+  [data-section-id={{ section.id }}] .image-section__container img {
+    border-radius: {{ section.settings.border_radius }}px;
+  }
+</style>
+<section class="{{ container_class }} {{ display_mode_class }}" data-section-id="{{ section.id }}">
+  <div class="image-section__container">
+    {% if section.settings.image or section.settings.image_mobile %}
+      <a href="{{ section.settings.image_link }}">
+        <div class="desktop-only">{% render 'rimg', img: section.settings.image, style: "width: 100%;" %}</div>
+        <div class="mobile-only">{% render 'rimg', img: section.settings.image_mobile, style: "width: 100%;" %}</div>
+      </a>
+    {% endif %}
+  </div>
+  
+</section>
+{% schema %}
+{
+    "name": "Image Banner",
+    "settings": [
+      {
+        "type":      "select",
+        "id":        "width_mode",
+        "label":     "Width mode",
+        "options": [
+          {
+            "value": "page-width",
+            "label": "Page Width"
+          },
+          {
+            "value": "content-width",
+            "label": "Content Width"
+          }
+        ],
+          "default":   "page-width"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
+        },
+      {
+        "type": "range",
+        "id": "height",
+        "label": "Height",
+        "default": 0,
+        "unit": "px",
+        "min": 0,
+        "max": 1000,
+        "step": 25,
+        "info": "Set to 0 to use original image height"
+      },
+      
+      {
+        "type": "url",
+        "id": "image_link",
+        "label": "Image link"
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "label": "Border radius",
+        "default": 0,
+        "unit": "px",
+        "min": 0,
+        "max": 30,
+        "step": 1
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
